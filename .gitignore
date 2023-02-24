@@ -24,4 +24,15 @@ dist-ssr
 *.sw?
 
 *.txt
+# Ignorar todos los archivos que terminan en .log
+*.log
+# Ignorar todos los archivos que terminan en .map
+*.map
+# Ignorar todos los archivos que contienen comentarios con //
 **/*.js//*
+# Ignorar todos los archivos que contienen comentarios con /*
+**/*.js/*
+# Ignorar la carpeta node_modules
+/node_modules/
+# Ignorar el archivo .env.local
+.env.local
