@@ -71,6 +71,7 @@ body {
   width: fit-content;
   position: relative;
   border-radius: 10px;
+  margin-bottom: 2.3rem;
 }
 
 .turn .square,
@@ -128,4 +129,21 @@ body {
   place-items: center;
   cursor: pointer;
   font-size: 48px;
+}
+.sc-title{
+  display: flex,
+}
+
+.sc-score{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 320px;
+  border: 2px solid #eee;
+  border-radius: 5px;
+  gap: .8rem;
+  padding: .8rem;
+}
+h2{
+  font-size:xx-large;
 }
