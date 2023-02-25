@@ -4,18 +4,14 @@ import './App.css'
 import confetti from 'canvas-confetti'
 import { TURNS, WINNER_COMBOS } from './constants'
 
-function App() {
-
+function App () {
   const [board, setBoard] = useState(Array(9).fill(null))
   const [turn, setTurn] = useState(TURNS.X)
   const [winner, setWinner] = useState(null)
   const [player1Score, setPlayer1Score] = useState(0)
   const [player2Score, setPlayer2Score] = useState(0)
-
-
   const checkWinner = (boardToCheck) => {
     for (const combo of WINNER_COMBOS) {
-
       const [a, b, c] = combo
       if (
         boardToCheck[a] &&
@@ -27,7 +23,7 @@ function App() {
     }
     return null
   }
-  //Tie=Empate
+  // Tie=Empate
   const checkTie = (newBoard) => {
     return newBoard.every((position) => position != null)
   }
@@ -46,7 +42,7 @@ function App() {
     if (newWinner) {
       confetti()
       setWinner(newWinner)
-      updateScore(newWinner);
+      updateScore(newWinner)
     } else if (checkTie(newBoard)) {
       setWinner(false)
     }
@@ -54,9 +50,9 @@ function App() {
 
   const updateScore = (newWinner) => {
     if (newWinner === TURNS.X) {
-      setPlayer1Score(player1Score + 1);
+      setPlayer1Score(player1Score + 1)
     } else {
-      setPlayer2Score(player2Score + 1);
+      setPlayer2Score(player2Score + 1)
     }
   }
 
@@ -73,13 +69,17 @@ function App() {
   return (
     <main className='board'>
       <h1>Tic Tac Toe</h1>
-      <button onClick={resetGame}><i className="fa-solid fa-xl fa-arrow-rotate-left"></i></button>
+      <button onClick={resetGame}>
+        <i className='fa-solid fa-xl fa-arrow-rotate-left' />
+      </button>
       <section className='game'>
         {
           board.map((_, index) => (
-            <Square key={index}
+            <Square
+              key={index}
               index={index}
-              updateBoard={updateBoard}>
+              updateBoard={updateBoard}
+            >
               {board[index]}
             </Square>
           ))
@@ -94,9 +94,9 @@ function App() {
           <section className='winner'>
             <div className='text'>
               <h2>
-                {winner === false ?
-                  'Empate' : 'Ganó:'
-                }
+                {winner === false
+                  ? 'Empate'
+                  : 'Ganó:'}
               </h2>
               <header className='win'>
                 {winner &&
@@ -110,9 +110,9 @@ function App() {
         )
       }
       <h1><strong>MARCADOR</strong></h1>
-      <section className='sc-score'> 
-          <h2>{TURNS.X} : {player1Score}</h2>
-          <h2>{TURNS.O} : {player2Score}</h2>
+      <section className='sc-score'>
+        <h2>{TURNS.X} : {player1Score}</h2>
+        <h2>{TURNS.O} : {player2Score}</h2>
       </section>
       <button onClick={resetMatch}>Partida Nueva</button>
     </main>
